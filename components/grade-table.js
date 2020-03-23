@@ -5,7 +5,7 @@ class GradeTable {
   updateGrades(grades) {
     console.log(grades);
     var tBody = document.querySelector('tbody');
-    if(tBody.firstChild) {
+    while(tBody.firstChild) {
       tBody.removeChild(tBody.firstChild);
     }
     for(var i = 0; i < grades.length; i++) {
