@@ -4,26 +4,17 @@ class GradeTable {
      this.noGradesElement = noGradesElement;
   }
   updateGrades(grades) {
-    console.log(grades);
     var tBody = document.querySelector('tbody');
+    var getHiddenP = document.querySelector('p');
     while(tBody.firstChild) {
       tBody.removeChild(tBody.firstChild);
     }
     if(grades.length === 0) {
-      var getHiddenP = document.querySelector('.d-none');
       getHiddenP.className = '';
+    } else {
+      getHiddenP.className = 'd-none';
     }
     for(var i = 0; i < grades.length; i++) {
-      // var row = document.createElement('tr');
-      // var studentName = document.createElement('td');
-      // var courseName = document.createElement('td');
-      // var studentsGrade = document.createElement('td');
-      // studentName.textContent = grades[i].name;
-      // courseName.textContent = grades[i].course;
-      // studentsGrade.textContent = grades[i].grade;
-      // row.appendChild(studentName);
-      // row.appendChild(courseName);
-      // row.appendChild(studentsGrade);
       var row = this.renderGradeRow(grades[i], this.deleteGrade);
       tBody.appendChild(row);
     }

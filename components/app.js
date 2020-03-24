@@ -21,7 +21,6 @@ class App {
     var sum = 0;
     for(var i = 0; i < grades.length; i++) {
       sum += grades[i].grade;
-      console.log(sum);
     }
     var average = Math.trunc(sum / grades.length);
     this.pageHeader.updateAverage(average);
@@ -44,9 +43,6 @@ class App {
     this.getGrades();
   }
   createGrade(name, course, grade) {
-    console.log(name);
-    console.log(course);
-    console.log(grade);
     if(name === '' || course === '' || grade === '') {
       return;
     }
@@ -62,7 +58,6 @@ class App {
     })
   }
   deleteGrade(id) {
-    console.log(id);
     $.ajax({
       method: "DELETE",
       url: "https://sgt.lfzprototypes.com/api/grades/" + id,
